@@ -21,3 +21,61 @@
 <clientes [titulo]="subtitle" (showSales)="showData($event)"></clientes>
 <br>
 {{ sales }}
+<br>
+---------------------------------------------------------------------------------------------------------
+<div *ngIf="show">
+	Cleintes morosos.
+	<div template="ngIf debt > 0">
+		Clientes con deuda a cancelar.
+		<template [ngIf]="city == 'Quito'">
+			{{ city }}
+		</template>
+	</div>
+</div>
+<button (click)="debt=!debt">Mostrar clientes morosos</button>
+<br>
+<br>
+<div>
+	<input type="radio" name="pais" (click)="pais = 'Argentina'">  Argentina
+	<input type="radio" name="pais" (click)="pais = 'Nicaragua'">  Nicaragua
+	<input type="radio" name="pais" (click)="pais = 'España'">  España
+	<input type="radio" name="pais" (click)="pais = 'otro'">  otro
+	<div [ngSwitch]="pais">
+		<div *ngSwitchCase="'Argentina'">
+			{{ pais }} se encuentra en America del sur.
+		</div>
+		<div *ngSwitchCase="'Nicaragua'">
+			{{ pais }} se encuentra en America central.
+		</div>
+		<div *ngSwitchCase="'España'">
+			{{ pais }} se encuentra en Europa.
+		</div>
+		<div *ngSwitchCase="'otro'">
+			Cual es su pais? <input type="text">
+		</div>
+		<div *ngSwitchDefault>
+			Seleccione un pais
+		</div>
+	</div>
+</div>
+<br>
+<div>
+	<ul>
+		<li *ngFor="let user of users">{{ user.name }} - <button (click)="delete(user)" [ngClass]="setClass()">Eliminar</button></li>
+	</ul>
+</div>
+<button (click)="Add()" [class.colorText]="color">Agregar</button>
+<button (click)="Add()" [ngClass]="setClass()">Agregar</button>
+<button (click)="ActiveClass()">Activar clases</button>
+<br>
+<input type="text" [(ngModel)]="users[0].name" [style.font-size]="tfuente">
+<input type="text" [(ngModel)]="users[0].name" [ngStyle]="setStyles()">
+<br>
+<contenido>
+	<div class="titulo">
+		titulo
+	</div>
+	<div class="body">
+		Este es un ejemplo de texto estatico
+	</div>
+</contenido>
