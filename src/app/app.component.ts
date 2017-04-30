@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { ClientesService } from './clientes.service';
+import { Cliente } from './cliente';
+
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+	styleUrls: ['./app.component.css'],
+	providers: [ClientesService]
 })
 export class AppComponent {
 	title = 'app works!';
@@ -25,6 +29,17 @@ export class AppComponent {
 	];
 	color = true;
 	tfuente = "x-large";
+	list:Cliente[];
+
+	constructor(private servico:ClientesService){}
+
+	chargeData(){
+		this.list = this.servico.getClientes();
+	}
+
+	idCliente(id:number){
+		this.list = this.servico.getClienteId(id);
+	}
 
 	changeMessage(){
 		this.message_ = 'bye';

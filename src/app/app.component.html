@@ -84,3 +84,11 @@
 <p>Segundo parrafo</p>
 <p myResaltador [color]="'red'" [colortext]="'green'">Tercer parrafo</p>
 <br>
+---------------------------------------------------------------------------------------------------------
+<br>
+<input type="text" #id>
+<button (click)="idCliente(id.value)">Buscar datos</button>
+<button (click)="chargeData()">Cargar datos</button>
+<ul>
+	<li *ngFor="let item of list">{{ item.name }}</li>
+</ul>
