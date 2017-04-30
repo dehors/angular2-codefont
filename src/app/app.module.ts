@@ -6,10 +6,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './clientes.component';
 import { ContentComponent } from './content.component';
+import { ResaltadorDirective } from './resaltar.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,ClienteComponent,ContentComponent
+    AppComponent,ClienteComponent,ContentComponent,ResaltadorDirective
   ],
   imports: [
     BrowserModule,
