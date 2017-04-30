@@ -1,0 +1,23 @@
+<h1>
+	{{title}}
+</h1>
+<br/>
+<!-- <input type="text" value="{{ name }}"> -->
+<!-- <input type="text" [value]="name"> -->
+<input type="text" [value]="name" (input)="name = $event.target.value">
+{{ name }}
+<img [src]="url" alt="img" [height]="alto" [width]="ancho">
+<br/>
+{{ message_ }}
+<button (click)="changeMessage()">Change Message</button>
+<button (click)="message_ = 'Otro mensaje'">Change Message type 2</button>
+<br/>
+<input type="text" [ngModel]="messageModel">
+<input type="text" [(ngModel)]="messageModel">
+<input type="text" [ngModel]="messageModel"
+(ngModelChange)="onChange($event)">
+{{ messageModel }}
+<br>
+<clientes [titulo]="subtitle" (showSales)="showData($event)"></clientes>
+<br>
+{{ sales }}
